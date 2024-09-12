@@ -1,2 +1,2 @@
-# Gustatory_Frame_Extraction
+# Gustatory-Frame-Extraction
 Gustatory information extraction system
