@@ -1,0 +1,16 @@
+test	0-1	-	The	O	O	O	O	O	O	O	O	O	O
+test	0-2	-	taste	B-Taste_Word	O	O	O	O	O	O	O	O	O
+test	0-3	-	of	O	B-Taste_Source	O	O	O	O	O	O	O	O
+test	0-4	-	this	O	I-Taste_Source	O	O	O	O	O	O	O	O
+test	0-5	-	chicken	O	I-Taste_Source	O	O	O	O	O	O	O	O
+test	0-6	-	is	O	O	O	O	O	O	O	O	O	O
+test	0-7	-	terrible	O	O	B-Quality	O	O	O	O	O	O	O
+test	0-8	-	,	O	O	O	O	O	O	O	O	O	O
+test	0-9	-	I	O	O	O	O	O	O	O	O	O	O
+test	0-10	-	am	O	O	O	O	O	O	O	O	O	O
+test	0-11	-	not	O	O	O	O	O	O	O	O	O	O
+test	0-12	-	able	O	O	O	O	O	O	O	O	O	O
+test	0-13	-	to	O	O	O	O	O	O	O	O	O	O
+test	0-14	-	finish	O	O	O	O	O	O	O	O	O	O
+test	0-15	-	it	O	O	O	O	O	O	O	O	O	O
+test	0-16	-	.	O	O	O	O	O	O	O	O	O	O
