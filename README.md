@@ -49,14 +49,6 @@ The `run-predictions` folder contains the classifier (`predict.py`) used to extr
    pip install -r requirements.txt
    ```
 
-Here’s a refined version of the instructions for running `predict.py`:
-
-The `predict.py` script requires the following arguments in this order:
-
-1. **Model**: Path to the model file.
-2. **File to Predict**: The input file containing the data for prediction.
-3. **Output File**: The file where the predictions will be saved.
-
 #### Optional Parameter:
 - `--device`: Specifies the device to use for computation:
   - `0` for CUDA-based GPUs.
