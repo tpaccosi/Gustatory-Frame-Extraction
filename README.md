@@ -25,7 +25,7 @@ The script also generates a `-mapping` file outside the output folder to map eac
 Usage example:
 
 ```
-python3 books_converter-filter.py --folder books_folder --output output_folder --seeds SeedLists/seed-en-pos.txt --label abc --books 1000
+python3 books_converter-filter.py --folder books_folder --output output_folder --seeds SeedLists/seed_taste_pos_en.txt --label abc --books 1000
 ```
 
 ## __Step 2 - Taste prediction__
