@@ -30,8 +30,6 @@ python3 books_converter-filter.py --folder books_folder --output output_folder -
 
 ## __Step 2 - Taste prediction__
 
-Here's an improved version of the instructions:
-
 The `run-predictions` folder contains the classifier (`predict.py`) used to extract smell sources from the books that were converted in the previous step.
 
 ### Setup Instructions:
