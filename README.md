@@ -1,6 +1,6 @@
 # Gustatory-Frame-Extraction
 
-This is the repository to use the models in English for gustatory frame extraction with the multitask approach.
+This is the repository to use the models in English for gustatory frame extraction with the __multitask approach__.
 
 ## __Step 1 - Convert Books__
 
