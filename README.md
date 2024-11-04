@@ -1,6 +1,6 @@
 # Gustatory-Frame-Extraction
 
-This is the repository to use the models for gustatory frame extraction
+This is the repository to use the models for gustatory frame extraction.
 
 ## __Step 1 - Convert Books__
 
