@@ -21,7 +21,7 @@ The script creates a -mapping file outside the output folder to map the document
 
 Usage example:
 
-python3 books_converter-filter.py --folder books_folder --output output_folder --seeds SeedLists/seed-en-pos.txt --label abc --books 1000
+```python3 books_converter-filter.py --folder books_folder --output output_folder --seeds SeedLists/seed-en-pos.txt --label abc --books 1000```
 
 ## Step 2 - Taste prediction 
 
@@ -31,7 +31,7 @@ Before running the script download the model from here [...] and move it in run-
 
 The code has ben tested with python 3.8. To install the required packages, in run-predictions folder run:
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 The script takes as argument in order: model, file to predict, output file (containing the predictions)
 
@@ -41,7 +41,7 @@ The folder test-files contains a sample file to test if the classifier works.
 
 Usage examples:
 
-python3 predict.py models/en.pt test-files/test-en.tsv predictions/predictions-test-en.tsv --device 0
+```python3 predict.py models/en.pt test-files/test-en.tsv predictions/predictions-test-en.tsv --device 0```
 
 The file predictions/sample-predictions-test.tsv shows the correct output to check your system output against.
 
@@ -55,9 +55,9 @@ This extract-annotations.py script in frames-extraction folder extract the predi
 
 The code has ben tested with python 3.8. To install the required packages, in frames-extraction folder run:
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 Usage example:
 
-python3 extract-annotations.py --folder ../run-predictions/predictions/ --output test-frames.tsv
+```python3 extract-annotations.py --folder ../run-predictions/predictions/ --output test-frames.tsv```
 
