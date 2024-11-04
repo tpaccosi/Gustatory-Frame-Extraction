@@ -64,8 +64,6 @@ After running the script, you can compare your output with the example provided 
 
 ## __Step 3 - Frames Extraction__
 
-Here's a refined set of instructions for running `extract-annotations.py`:
-
 The `extract-annotations.py` script, located in the `frames-extraction` folder, extracts frame elements from the classifier's predictions and outputs a TSV file with all identified frames and corresponding sentences.
 
 ### Parameters
