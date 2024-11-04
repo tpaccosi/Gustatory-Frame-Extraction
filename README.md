@@ -1,23 +1,26 @@
 # Gustatory-Frame-Extraction
-Gustatory information extraction system
+
+This is the repository to use the models for gustatory frame extraction
 
 ## __Step 1 - Convert Books__
 
-The script in he folder books-converter converts plain texts to the format used for the multitask or the single-task classification. Run the script books_converter.py on the folder containing the documents you want to use to extract frame elements and convert them in a format readable by the classifier. The converter script filters the books by keeping only portions of text (parameter --window) around the seedwords. The SeedLists folder contains the seed lists selected by the author as described in __Paccosi, T., & Tonelli, S. (2024, May). A New Annotation Scheme for the Semantics of Taste. In Proceedings of the 20th Joint ACL-ISO Workshop on Interoperable Semantic Annotation@ LREC-COLING 2024 (pp. 39-46)__. The script doesn't lemmatize, so you need to add all the inflected forms of the seeds to the list.
+The script in the `books-converter` folder converts plain text files into a format compatible with either multitask or single-task classification. To prepare your documents for frame element extraction, run the script `books_converter.py` on the folder containing the texts you wish to convert. This converter filters the content by retaining only text segments (specified by the `--window` parameter) surrounding the seed words. The `SeedLists` folder contains seed lists chosen by the author, as described in *Paccosi, T., & Tonelli, S. (2024, May). A New Annotation Scheme for the Semantics of Taste. In Proceedings of the 20th Joint ACL-ISO Workshop on Interoperable Semantic Annotation@ LREC-COLING 2024 (pp. 39-46)*. Note that the script does not perform lemmatization, so you need to include all inflected forms of the seeds in the list.
 
---folder: The input folder containing the books/document (plain txt, no metadata or tags)
+Here's a refined description of the parameters for `books_converter.py`:
 
---output: The output folder for the converted documents
+- `--folder`: Specifies the input folder containing the books or documents in plain text format (no metadata or tags).
+  
+- `--output`: Defines the output folder where the converted documents will be saved.
 
---seeds: The file containing the seeds list. E.g. 'SeedLists/seed-taste-pos.txt'
+- `--seeds`: Path to the file containing the seed list, e.g., `'SeedLists/seed-taste-pos.txt'`.
 
---books: The script allows to merge multible books into a single file, setting the value to 1 create a file for each book. Default value is 100.
+- `--books`: Controls the merging of multiple books into a single file. Setting this to `1` will create a separate file for each book. The default value is `100`.
 
---window: The number of sentences to keep around each taste word. 3 means 3 before and 3 after. Default value is 3.
+- `--window`: The number of sentences to retain around each seed word. For example, setting this to `3` keeps three sentences before and after each occurrence of a seed word. The default value is `3`.
 
---label: A short label used to assign an ID to the documents (so that later they can be matched with the metadata)
+- `--label`: A short label used to assign a unique ID to each document, allowing it to be matched with metadata later.
 
-The script creates a -mapping file outside the output folder to map the document ID with the original books.
+The script also generates a `-mapping` file outside the output folder to map each document ID to its corresponding original book.
 
 Usage example:
 
@@ -27,47 +30,83 @@ python3 books_converter-filter.py --folder books_folder --output output_folder -
 
 ## __Step 2 - Taste prediction__
 
-The folder run-predictions contains the classifier (predict.py) to extract the smell sources from the books converted in the previous step.
+Here's an improved version of the instructions:
 
-Before running the script download the model from here [...] and move it in run-predictions/models folder.
+The `run-predictions` folder contains the classifier (`predict.py`) used to extract smell sources from the books that were converted in the previous step.
 
-The code has ben tested with python 3.8. To install the required packages, in run-predictions folder run:
+### Setup Instructions:
 
-```
-pip install -r requirements.txt
-```
+1. **Download the Model**  
+   First, download the model from [link provided] and move it into the `run-predictions/models` folder.
 
-The script takes as argument in order: model, file to predict, output file (containing the predictions)
+2. **Python Version**  
+   The code has been tested with Python 3.8.
 
-Optional: --device to select the gpu to be used. 0 for CUDA based GPUs, 1 for MPS (Apple M1/M2 chips) or -1 for CPU.
+3. **Install Required Packages**  
+   To install the necessary packages, navigate to the `run-predictions` folder and run the following command:
 
-The folder test-files contains a sample file to test if the classifier works.
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Usage examples:
+Here’s a refined version of the instructions for running `predict.py`:
 
-```
+The `predict.py` script requires the following arguments in this order:
+
+1. **Model**: Path to the model file.
+2. **File to Predict**: The input file containing the data for prediction.
+3. **Output File**: The file where the predictions will be saved.
+
+#### Optional Parameter:
+- `--device`: Specifies the device to use for computation:
+  - `0` for CUDA-based GPUs.
+  - `1` for MPS (Apple M1/M2 chips).
+  - `-1` for CPU (default).
+
+The `test-files` folder contains a sample file you can use to check if the classifier is working correctly.
+
+#### Usage Example:
+```bash
 python3 predict.py models/en.pt test-files/test-en.tsv predictions/predictions-test-en.tsv --device 0
 ```
 
-The file predictions/sample-predictions-test.tsv shows the correct output to check your system output against.
+After running the script, you can compare your output with the example provided in `predictions/sample-predictions-test.tsv` to ensure your setup is correct.
 
 ## __Step 3 - Frames Extraction__
 
-This extract-annotations.py script in frames-extraction folder extract the predictions from the output of the previous step providing a tsv file with all the frames and sentences.
+Here's a refined set of instructions for running `extract-annotations.py`:
 
---folder: the folder with the predictions from the classifier
+The `extract-annotations.py` script, located in the `frames-extraction` folder, extracts frame elements from the classifier's predictions and outputs a TSV file with all identified frames and corresponding sentences.
 
---output: the output .tsv file
+### Parameters
 
-The code has ben tested with python 3.8. To install the required packages, in frames-extraction folder run:
+- `--folder`: Specifies the folder containing the predictions generated by the classifier.
+- `--output`: Defines the path to the output `.tsv` file that will store the extracted frames.
 
-```
+### Setup Instructions
+
+The code has been tested with Python 3.8. To install the required packages, navigate to the `frames-extraction` folder and run:
+
+```bash
 pip install -r requirements.txt
 ```
 
-Usage example:
+### Usage Example
 
-```
+To execute the script, use the following command:
+
+```bash
 python3 extract-annotations.py --folder ../run-predictions/predictions/ --output test-frames.tsv
-```
+``` 
 
+This command will process the predictions and create a `test-frames.tsv` file containing the extracted frames and sentences.
+
+## Publication
+
+If you use this resource, please cite:
+
+`Paccosi T. & Tonelli S. (2024). Benchmarking the Semantics of Taste: Towards the Automatic Extraction of Gustatory Language. In CLiC-it, Italian Conference on Computational Linguistics 2024`
+
+## Funding acknowledgement
+
+Funded by the European Union under grant agreement 101088548 -TRIFECTA (https://trifecta.dhlab.nl/). 
