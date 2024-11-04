@@ -12,7 +12,7 @@ Here's a refined description of the parameters for `books_converter.py`:
   
 - `--output`: Defines the output folder where the converted documents will be saved.
 
-- `--seeds`: Path to the file containing the seed list, e.g., `'SeedLists/seed-taste-pos.txt'`.
+- `--seeds`: Path to the file containing the seed list, e.g., `'SeedLists/seed_taste_pos_en.txt'`.
 
 - `--books`: Controls the merging of multiple books into a single file. Setting this to `1` will create a separate file for each book. The default value is `100`.
 
