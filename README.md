@@ -1,6 +1,6 @@
 # Gustatory-Frame-Extraction
 
-This is the repository to use the models in English for gustatory frame extraction.
+This is the repository to use the models in English for gustatory frame extraction with the multitask approach.
 
 ## __Step 1 - Convert Books__
 
@@ -29,6 +29,8 @@ python3 books_converter-filter.py --folder books_folder --output output_folder -
 ```
 
 ## __Step 2 - Taste prediction__
+
+# Multitask
 
 The `run-predictions` folder contains the classifier (`predict.py`) used to extract taste frame elements from the books that were converted in the previous step.
 
