@@ -35,7 +35,7 @@ The `run-predictions` folder contains the classifier (`predict.py`) used to extr
 ### Setup Instructions:
 
 1. **Download the Model**  
-   First, download the model you want to use from [link provided] and move it into the `run-predictions/models` folder.
+   First, download the model you want to use from [link to provide] and move it into the `run-predictions/models` folder.
 
 2. **Python Version**  
    The code has been tested with Python 3.8.
