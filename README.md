@@ -57,7 +57,7 @@ The `test-files` folder contains a sample file you can use to check if the class
 
 #### Usage Example:
 ```bash
-python3 predict.py models/en.pt test-files/test-en.tsv predictions/predictions-test-en.tsv --device 0
+python3 predict.py models/model.pt test-files/test-en.tsv predictions/predictions-test-en.tsv --device 0
 ```
 
 After running the script, you can compare your output with the example provided in `predictions/sample-predictions-test.tsv` to ensure your setup is correct.
